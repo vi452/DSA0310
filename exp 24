@@ -1,0 +1,19 @@
+def dialog_act(sentence):
+    sentence = sentence.lower()
+    if sentence.endswith("?"):
+        return "Question"
+    elif any(sentence.startswith(w) for w in ["please", "could you", "can you"]):
+        return "Request"
+    elif any(w in sentence for w in ["thank", "thanks"]):
+        return "Acknowledgment"
+    else:
+        return "Statement"
+
+dialog = [
+    "Can you help me?",
+    "I need some information.",
+    "Thank you very much."
+]
+
+for d in dialog:
+    print(d, "->", dialog_act(d))
