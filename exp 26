@@ -1,0 +1,8 @@
+from transformers import pipeline
+
+translator = pipeline("translation_en_to_fr", model="Helsinki-NLP/opus-mt-en-fr")
+
+text = "Machine learning is transforming the world."
+translated = translator(text)
+
+print(translated[0]["translation_text"])
